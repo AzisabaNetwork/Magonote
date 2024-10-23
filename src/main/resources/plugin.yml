@@ -1,0 +1,8 @@
+name: Magonote
+version: '${project.version}'
+main: com.github.aburaagearou.magonote.magonote.Magonote
+api-version: '1.16'
+permissions:
+  magonote.toggle:
+    description: Magonote機能の有効化切り替え
+    default: op
