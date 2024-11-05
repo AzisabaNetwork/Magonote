@@ -7,6 +7,7 @@ import co.aikar.commands.PaperCommandManager;
 import com.github.aburaagearou.magonote.magonote.commands.MagonoteCommand;
 import com.github.aburaagearou.magonote.magonote.hands.DestroyerBedrock;
 import com.github.aburaagearou.magonote.magonote.hands.SwapGamemode;
+import com.github.aburaagearou.magonote.magonote.listeners.PlayerFilter;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -52,6 +53,7 @@ public final class Magonote extends JavaPlugin {
         // リスナー登録
         Bukkit.getPluginManager().registerEvents(new DestroyerBedrock(), this);
         Bukkit.getPluginManager().registerEvents(new SwapGamemode(), this);
+        Bukkit.getPluginManager().registerEvents(new PlayerFilter(), this);
     }
 
     @Override
