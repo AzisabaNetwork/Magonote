@@ -5,9 +5,10 @@ import co.aikar.commands.MessageKeys;
 import co.aikar.commands.MessageType;
 import co.aikar.commands.PaperCommandManager;
 import com.github.aburaagearou.magonote.magonote.commands.MagonoteCommand;
+import com.github.aburaagearou.magonote.magonote.config.MagonoteConfig;
 import com.github.aburaagearou.magonote.magonote.hands.DestroyerBedrock;
 import com.github.aburaagearou.magonote.magonote.hands.SwapGamemode;
-import com.github.aburaagearou.magonote.magonote.listeners.PlayerFilter;
+import com.github.aburaagearou.magonote.magonote.listeners.BedrockByeBye;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -35,6 +36,9 @@ public final class Magonote extends JavaPlugin {
     public void onEnable() {
         instance = this;
 
+        // 設定読み込み
+        MagonoteConfig.loadConfig();
+
         // コマンド登録
         manager = new PaperCommandManager(this);
 
@@ -53,7 +57,7 @@ public final class Magonote extends JavaPlugin {
         // リスナー登録
         Bukkit.getPluginManager().registerEvents(new DestroyerBedrock(), this);
         Bukkit.getPluginManager().registerEvents(new SwapGamemode(), this);
-        Bukkit.getPluginManager().registerEvents(new PlayerFilter(), this);
+        Bukkit.getPluginManager().registerEvents(new BedrockByeBye(), this);
     }
 
     @Override
@@ -76,7 +80,7 @@ public final class Magonote extends JavaPlugin {
      * コマンド追加
      * @param command BaseCommand
      */
-    public void addCommand(BaseCommand command) {
+    public static void addCommand(BaseCommand command) {
         commands.add(command);
     }
 
