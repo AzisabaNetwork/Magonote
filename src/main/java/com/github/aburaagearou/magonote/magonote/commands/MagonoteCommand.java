@@ -9,6 +9,14 @@ import org.bukkit.entity.Player;
 @Description("孫の手")
 public class MagonoteCommand extends BaseCommand {
 
+	/**
+	 * コンストラクタ
+	 */
+	public MagonoteCommand() {
+		// コマンド登録
+		Magonote.addCommand(this);
+	}
+
 	@Default
 	@Subcommand("toggle")
 	@Description("孫の手の有効/無効を切り替えます")
